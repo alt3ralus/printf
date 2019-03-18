@@ -1,2 +1,2 @@
-*** 0x10. C - printf ***
-** Low-level programming & Algorithm  **
+###  0x10. C - printf ### '\n'
+ ** Low-level programming & Algorithm  **
