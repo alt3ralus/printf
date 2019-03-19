@@ -1,27 +1,10 @@
 #include "holberton.h"
+
 /**
  *
  *
  */
-int print_str(va_list arg)
-{
 
-	char c;
-	c=va_arg(arg, int)
-		putchar(c);
-}
-
-int i;
-for (i = 0; c[i] != '\n'; i++ )
-{
-	_putchar(c[i] + '0');
-}
-}
-int print_char(char *c)
-{
-	putchar(c);
-
-}
 
 int _printf(const char *format, ...)
 {
