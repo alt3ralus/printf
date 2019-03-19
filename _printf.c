@@ -3,53 +3,56 @@
  *
  *
  */
-void print_char(char *c)
+int print_str(va_list arg)
 {
-  printf(c);
-  printf("print char \n");
 
-  /*int i;
-  for (i = 0; c[i] != '\n'; i++ )
-    {
-    _putchar(c[i] + '0');
-    }*/
+	char c;
+	c=va_arg(arg, int)
+		putchar(c);
 }
-void print_string(char *c)
+
+int i;
+for (i = 0; c[i] != '\n'; i++ )
 {
-  printf(c);
-  printf("print string \n");
+	_putchar(c[i] + '0');
+}
+}
+int print_char(char *c)
+{
+	putchar(c);
+
 }
 
 int _printf(const char *format, ...)
 {
-  estructura_t pArray[] = {
-			   {"c", print_char},
-			   {"s", print_string},
-			   {NULL, NULL}
-  };
+	estructura_t pArray[] = {
+		{"c", print_char},
+		{"s", print_string},
+		{NULL, NULL}
+	};
 
-  int x = 0;
-  int y = 0;
+	int x = 0;
+	int y = 0;
 
-  va_list argumentos;
+	va_list argumentos;
 
-  va_start(argumentos, format);
+	va_start(argumentos, format);
 
-  while (format[y] != '\0')
-    {
-      x = 0;
-
-      while (pArray[x].cadena != NULL)
+	while (format[y] != '\0')
 	{
-	  if (format[y] == pArray[x].cadena[0])
-	    {
-		    _printf("formato: %s\n", format);
+		x = 0;
 
-	      pArray[x].pointF(argumentos);
-	    }
-	  x++;
+		while (pArray[x].cadena != NULL)
+		{
+			if (format[y] == pArray[x].cadena[0])
+			{
+				_printf("formato: %s\n", format);
+
+				pArray[x].pointF(argumentos);
+			}
+			x++;
+		}
+		y++;
 	}
-      y++;
-    }
-  return (0);
+	return (0);
 }
