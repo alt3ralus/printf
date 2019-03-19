@@ -5,12 +5,15 @@
 #include <stdio.h>
 
 
-typedef struct estructura {
-	char * cadena;
-	void (*pointF) ();
-
-} estructura_t;
-
-int _printf(const char *format, ...);
+int _printf(char *format, ...);
 int _putchar(char c);
+void print_char(va_list arg);
+void print_string(va_list arg);
+
+
+typedef struct prnt
+{
+	char *a;
+	void (*f)(va_list arg);
+} prnt_n;
 #endif
