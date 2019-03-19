@@ -1,4 +1,5 @@
 #include "holberton.h"
+
 /**
  *
  *
@@ -9,28 +10,57 @@
 
 void print_char(char *c)
 {
-	int i;
+  printf(c);
+  printf("print char \n");
 
-	for (i = 0; c[i] != '\n'; i++ )
-	{
-		_putchar(c[i]);
-	}
+  /*int i;
+  for (i = 0; c[i] != '\n'; i++ )
+    {
+    _putchar(c[i] + '0');
+    }*/
 }
-void print_str(char *s)
+void print_string(char *c)
 {
+  printf(c);
+  printf("print string \n");
 
 
 }
+
 
 
 
 int _printf(const char *format, ...)
 {
-	funny_a pArray[] = {
-		{"c", print_char},
-		{"s", print_str},
-		{"%", print_percent},
+  estructura_t pArray[] = {
+			   {"c", print_char},
+			   {"s", print_string},
+			   {NULL, NULL}
+  };
+
+  int x = 0;
+  int y = 0;
+
+
+  va_list argumentos;
+
+  va_start(argumentos, format);
+
+  while (format[y] != '\0')
+    {
+      x = 0;
+
+      while (pArray[x].cadena != NULL)
+	{
+	  if (format[y] == pArray[x].cadena[0])
+	    {
+	      printf("formato: %s\n", format);
+
+	      pArray[x].pointF(argumentos);
+	    }
+	  x++;
 	}
-
-
+      y++;
+    }
+  return (0);
 }
