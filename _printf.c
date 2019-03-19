@@ -1,13 +1,8 @@
 #include "holberton.h"
-
 /**
  *
  *
- *
- *
- *
  */
-
 void print_char(char *c)
 {
   printf(c);
@@ -23,12 +18,7 @@ void print_string(char *c)
 {
   printf(c);
   printf("print string \n");
-
-
 }
-
-
-
 
 int _printf(const char *format, ...)
 {
@@ -40,7 +30,6 @@ int _printf(const char *format, ...)
 
   int x = 0;
   int y = 0;
-
 
   va_list argumentos;
 
@@ -54,7 +43,7 @@ int _printf(const char *format, ...)
 	{
 	  if (format[y] == pArray[x].cadena[0])
 	    {
-	      printf("formato: %s\n", format);
+		    _printf("formato: %s\n", format);
 
 	      pArray[x].pointF(argumentos);
 	    }
