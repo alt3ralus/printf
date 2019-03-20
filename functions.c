@@ -22,15 +22,14 @@ int print_string(va_list argumentos)
 	int iter;
 	char *stng = va_arg(argumentos, int);
 
-	if (!stng)
-	{
-		for (iter = 0 ; stng[iter] ; iter++)
-			_putchar(stng[iter]);
-
-		return (iter);
-	}
-	else
+	if (stng == NULL)
 		stng = NULL;
+	
+	for (iter = 0 ; stng[iter] ; iter++)
+		_putchar(stng[iter]);
+	
+	return (iter);
+	}
 }
 
 /*void print_decimal(va_list argumentos)
