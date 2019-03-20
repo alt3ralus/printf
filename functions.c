@@ -1,24 +1,38 @@
 #include "holberton.h"
-/**
- *
- *
- */
 
-void print_char(va_list argumentos)
+/**
+ * print_char - prints char
+ *
+ * @argumentos: parameter to print
+ * Return: 1
+ */
+int print_char(va_list argumentos)
 {
-  printf("%c", va_arg(argumentos, int));
+	char pc = va_arg(argumentos, int));
+
+	_putchar(pc);
+	return (1);
 }
-void print_string(va_list argumentos)
+
+/**
+ * print_string - prints string
+ *
+ * @argumentos: parameter to print
+ * Return: length of string
+ */
+int print_string(va_list argumentos)
 {
-  printf("%s", va_arg(argumentos, char *));
+	int iter;
+	char *stng = va_arg(argumentos, int);
+
+	if (stng == NULL)
+		stng = NULL;
+
+	for (iter = 0 ; stng[iter] ; iter++)
+		_putchar(stng[iter]);
+
+	return (iter);
 }
-void print_decimal(va_list argumentos)
-{
-  printf("%d", va_arg(argumentos, int));
-  putchar('1');
-}
-void print_integer(va_list argumentos)
-{
-  printf("%i", va_arg(argumentos, int));
-   putchar('1');
-}
+
+/*void print_decimal(va_list argumentos)*/
+/*void print_integer(va_list argumentos)*/
