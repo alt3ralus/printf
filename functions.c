@@ -1,13 +1,15 @@
 #include "holberton.h"
-/**
- *
- *
- */
 
+/**
+ * print_char - prints char
+ * @argumentos: parameter to print 
+ */
 void print_char(va_list argumentos)
 {
-  printf("%c", va_arg(argumentos, int));
+	char pc = (char, va_arg(argumentos, int));
+	_putchar(pc);
 }
+
 void print_string(va_list argumentos)
 {
   printf("%s", va_arg(argumentos, char *));
