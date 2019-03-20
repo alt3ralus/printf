@@ -1,28 +1,10 @@
 #include "holberton.h"
 
 /**
- *
- *
+ * _printf - A function
+ * @format: array of char = String.
+ * Return: Len of string.
  */
-
-
-void print_char(char *c)
-{
-  printf("print char \n");
-}
-void print_string(char *c)
-{
-  printf("print string \n");
-}
-void print_decimal(char *c)
-{
-  printf("print decimal \n");
-}
-void print_integer(char *c)
-{
-  printf("print integer \n");
-}
-
 
 int _printf(const char *format, ...)
 {
@@ -30,7 +12,7 @@ int _printf(const char *format, ...)
 			   {"c", print_char},
 			   {"s", print_string},
 			   {"d", print_decimal},
-			   {"i", print_integer}
+			   {"i", print_integer},
 			   {NULL, NULL}
   };
 
@@ -43,12 +25,9 @@ int _printf(const char *format, ...)
 
   for (x = 0; format[x] != '0'; x++)
     {
-
       if (format[x] != '%')
-
 	{
 	  _putchar(format[x]);
-
 	}
       else if (format[x] == '%' && format[x + 1] == '%')
 	{
@@ -56,12 +35,17 @@ int _printf(const char *format, ...)
 	  x++;
 	}
       else if (format[x] == '%')
-
-	for (y = 0; pArray[y] != NULL; y++)
-	  {
-
-
-	  }
-
+	{
+	  for (y = 0; pArray[y].cadena != NULL; y++)
+	    {
+	      if (format[x + 1] == pArray[y].cadena[0])
+		{
+		  pArray[y].pointF(argumentos);
+		  x++;
+		}
+	    }
+	}
     }
+  va_end(argumentos);
+  return (0);
 }

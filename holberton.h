@@ -13,4 +13,8 @@ typedef struct estructura {
 
 int _printf(const char *format, ...);
 int _putchar(char c);
+void print_char(va_list argumentos);
+void print_string(va_list argumentos);
+void print_decimal(va_list argumentos);
+void print_integer(va_list argumentos);
 #endif
