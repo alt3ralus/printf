@@ -6,38 +6,62 @@
  */
 
 
+void print_char(char *c)
+{
+  printf("print char \n");
+}
+void print_string(char *c)
+{
+  printf("print string \n");
+}
+void print_decimal(char *c)
+{
+  printf("print decimal \n");
+}
+void print_integer(char *c)
+{
+  printf("print integer \n");
+}
+
+
 int _printf(const char *format, ...)
 {
-	estructura_t pArray[] = {
-		{"c", print_char},
-		{"s", print_string},
-		{"d", print_decimal},
-		{"i", print_integer}
-		{NULL, NULL}
-	};
+  estructura_t pArray[] = {
+			   {"c", print_char},
+			   {"s", print_string},
+			   {"d", print_decimal},
+			   {"i", print_integer}
+			   {NULL, NULL}
+  };
 
-	int x = 0;
-	int y = 0;
+  int x;
+  int y;
 
-	va_list argumentos;
+  va_list argumentos;
 
-	va_start(argumentos, format);
+  va_start(argumentos, format);
 
-	while (format[y] != '\0')
+  for (x = 0; format[x] != '0'; x++)
+    {
+
+      if (format[x] != '%')
+
 	{
-		x = 0;
+	  _putchar(format[x]);
 
-		while (pArray[x].cadena != NULL)
-		{
-			if (format[y] == pArray[x].cadena[0])
-			{
-				_printf("formato: %s\n", format);
-
-				pArray[x].pointF(argumentos);
-			}
-			x++;
-		}
-		y++;
 	}
-	return (0);
+      else if (format[x] == '%' && format[x + 1] == '%')
+	{
+	  _putchar(format[x]);
+	  x++;
+	}
+      else if (format[x] == '%')
+
+	for (y = 0; pArray[y] != NULL; y++)
+	  {
+
+
+	  }
+
+    }
 }
