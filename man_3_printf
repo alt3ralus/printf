@@ -11,7 +11,11 @@ _printf \- A function that produces output according to a format.
        int _printf(const char *format, ...);
 
 .SH DESCRIPTION
-       The function shows a string with a format. _printf is a variadic function.
+	The function allows the user to print a string of characters. Additionally the function allows to print the value of the variables of the program through the use of the character%. That makes a call to the variable type and prints the value that the variable has.
+	For each type of variable it is necessary to clarify the type of variable that is being called.
+	% c for a character.
+	% s for a string
+	% d for decimal.
 
 .SH RETURN VALUE
          Return the number ot characters printed excluding the nukk byte.
