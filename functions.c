@@ -3,11 +3,13 @@
 /**
  * print_char - prints char
  *
- * @argumentos: parameter to print 
+ * @argumentos: parameter to print
+ * Return: 1
  */
 int print_char(va_list argumentos)
 {
 	char pc = (char, va_arg(argumentos, int));
+
 	_putchar(pc);
 	return (1);
 }
@@ -16,6 +18,7 @@ int print_char(va_list argumentos)
  * print_string - prints string
  *
  * @argumentos: parameter to print
+ * Return: length of string
  */
 int print_string(va_list argumentos)
 {
@@ -24,21 +27,12 @@ int print_string(va_list argumentos)
 
 	if (stng == NULL)
 		stng = NULL;
-	
+
 	for (iter = 0 ; stng[iter] ; iter++)
 		_putchar(stng[iter]);
-	
+
 	return (iter);
-	}
 }
 
-/*void print_decimal(va_list argumentos)
-{
-  printf("%d", va_arg(argumentos, int));
-  putchar('1');
-}
-void print_integer(va_list argumentos)
-{
-  printf("%i", va_arg(argumentos, int));
-   putchar('1');
-}*/
+/*void print_decimal(va_list argumentos)*/
+/*void print_integer(va_list argumentos)*/
