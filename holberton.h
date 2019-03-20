@@ -7,7 +7,7 @@
 
 typedef struct estructura {
 	char * cadena;
-	void (*pointF) ();
+	int (*pointF) ();
 
 } estructura_t;
 
