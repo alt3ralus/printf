@@ -18,6 +18,7 @@ int _printf(const char *format, ...)
 
   int x;
   int y;
+  int count = 0;
 
   va_list argumentos;
 
@@ -28,11 +29,15 @@ int _printf(const char *format, ...)
       if (format[x] != '%')
 	{
 	  _putchar(format[x]);
+
+	  count = count + 1;
 	}
       else if (format[x] == '%' && format[x + 1] == '%')
 	{
 	  _putchar(format[x]);
 	  x++;
+
+	  count = count + 1;
 	}
       else if (format[x] == '%')
 	{
@@ -40,12 +45,12 @@ int _printf(const char *format, ...)
 	    {
 	      if (format[x + 1] == pArray[y].cadena[0])
 		{
-		  pArray[y].pointF(argumentos);
+		  count = count + pArray[y].pointF(argumentos);
 		  x++;
 		}
 	    }
 	}
     }
   va_end(argumentos);
-  return (0);
+  return (count);
 }
